@@ -81,10 +81,6 @@ namespace TrashCollector.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "UserRoles")]
-        public string UserRoles { get; set; }
-
-        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 

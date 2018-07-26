@@ -80,7 +80,8 @@
     <div class="form-group">
         @Html.Label("User Role", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
+            @Html.RadioButtonFor(m => m.UserRole, "Customer", new { @class = "radio-inline" })@Html.Label("Customer")
+            @Html.RadioButtonFor(m => m.UserRole, "Employee", new { @class = "radio-inline" })@Html.Label("Employee")
         </div>
     </div>
     <div class="form-group">
