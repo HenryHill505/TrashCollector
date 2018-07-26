@@ -20,26 +20,6 @@ namespace TrashCollector
             ApplicationDbContext db = new ApplicationDbContext();
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-
-            if (!roleManager.RoleExists("Admin"))
-            {
-                var role = new IdentityRole();
-                role.Name = "Admin";
-                roleManager.Create(role);
-
-                var user = new ApplicationUser();
-                user.UserName = "admin";
-                user.Email = "admin@test.com";
-                string userPassword = "admin";
-
-                var chkUser = userManager.Create(user, userPassword);
-
-                if (chkUser.Succeeded)
-                {
-                    var result1 = userManager.AddToRole(user.Id, "Admin");
-                }
-            }
 
             if (!roleManager.RoleExists("Employee"))
             {
