@@ -17,6 +17,7 @@ namespace TrashCollector.Models
         public string State { get; set; }
         public string PickupDay { get; set; }
         public string PickupRate { get; set; }
+        public string UserRole { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
