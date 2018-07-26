@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201807261608118_AddedNamesBack.Designer.cs">
       <DependentUpon>201807261608118_AddedNamesBack.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807261634272_AddedPropertiesToUser.cs" />
+    <Compile Include="Migrations\201807261634272_AddedPropertiesToUser.Designer.cs">
+      <DependentUpon>201807261634272_AddedPropertiesToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -304,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807261608118_AddedNamesBack.resx">
       <DependentUpon>201807261608118_AddedNamesBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261634272_AddedPropertiesToUser.resx">
+      <DependentUpon>201807261634272_AddedPropertiesToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
