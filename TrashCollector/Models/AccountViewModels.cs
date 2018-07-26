@@ -116,6 +116,10 @@ namespace TrashCollector.Models
         [Display(Name = "Pickup Rate")]
         public string PickupRate { get; set; }
 
+        [Required]
+        [Display(Name = "Role")]
+        public string UserRole { get; set; }
+
     }
 
     public class ResetPasswordViewModel
