@@ -204,6 +204,14 @@
     <Compile Include="Migrations\201807251858503_InitialMigration.Designer.cs">
       <DependentUpon>201807251858503_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807261603557_AddedFirstandLastNamepropertiestoIdentityModel.ApplicationUser.cs" />
+    <Compile Include="Migrations\201807261603557_AddedFirstandLastNamepropertiestoIdentityModel.ApplicationUser.Designer.cs">
+      <DependentUpon>201807261603557_AddedFirstandLastNamepropertiestoIdentityModel.ApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807261608118_AddedNamesBack.cs" />
+    <Compile Include="Migrations\201807261608118_AddedNamesBack.Designer.cs">
+      <DependentUpon>201807261608118_AddedNamesBack.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -290,6 +298,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251858503_InitialMigration.resx">
       <DependentUpon>201807251858503_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261603557_AddedFirstandLastNamepropertiestoIdentityModel.ApplicationUser.resx">
+      <DependentUpon>201807261603557_AddedFirstandLastNamepropertiestoIdentityModel.ApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261608118_AddedNamesBack.resx">
+      <DependentUpon>201807261608118_AddedNamesBack.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
