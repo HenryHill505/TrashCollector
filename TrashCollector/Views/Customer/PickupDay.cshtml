@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "PickupDay";
 }
+@{ List<string> dayList = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };}
 
 <h2>PickupDay</h2>
 
@@ -9,8 +10,30 @@
 <span>
     @Model.PickupDay
 </span>
-@Html.Label("Change Pickup Day: ")
-@{ List<string> dayList = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };}
-@Html.DropDownList("Pickup Day", new SelectList(dayList))
-<input type="submit" class="btn btn-default" value="Register"/>
 
+@using (Html.BeginForm("PickupDay", "Customer", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.PickupDay, new { @class = "col-md-2, control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.PickupDay, new SelectList(dayList), new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Change Day" />
+        </div>
+    </div>
+}
+
+
+<!--<form action="/Customer/PickupDay" method="post" role="form">
+    <div class="form-group">
+        @Html.Label("Change Pickup Day: ")
+        @Html.DropDownListFor(m => m.PickupDay, new SelectList(dayList))
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-default" value="Register" />
+    </div>
+</form>-->

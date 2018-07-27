@@ -35,11 +35,12 @@ namespace TrashCollector.Controllers
         }
 
         [HttpPost]
-        public ActionResult PickupDay(string newPickupDay)
+        [ValidateAntiForgeryToken]
+        public ActionResult PickupDay(ApplicationUser postedUser)
         {
             string Id = User.Identity.GetUserId();
             var user = db.Users.Where(u => u.Id == Id).FirstOrDefault();
-            user.PickupDay = newPickupDay;
+            user.PickupDay = postedUser.PickupDay;
             db.SaveChanges();
             return View("Index");
         }
