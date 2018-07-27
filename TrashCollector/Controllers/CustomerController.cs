@@ -24,7 +24,9 @@ namespace TrashCollector.Controllers
 
         public ActionResult PaymentOwed()
         {
-            return View();
+            string Id = User.Identity.GetUserId();
+            var pickups = db.Pickups.Where(p => p.UserId == Id).Where(p => p.Status == "Incomplete").ToList();
+            return View(pickups);
         }
 
         public ActionResult PickupDay()

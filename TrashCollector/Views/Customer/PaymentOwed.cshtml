@@ -1,7 +1,18 @@
-﻿
+﻿@using TrashCollector.Models
+@model List<Pickup>
 @{
     ViewBag.Title = "PaymentOwed";
 }
 
 <h2>PaymentOwed</h2>
 
+@foreach(Pickup pickup in Model)
+{
+    <p>
+        @pickup.Date.Date.ToString("dd/MM/yyyy")
+    </p>
+    <p>
+        @pickup.Cost
+    </p>
+    <br />
+}
