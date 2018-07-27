@@ -9,4 +9,8 @@
 <span>
     @Model.PickupDay
 </span>
+@Html.Label("Change Pickup Day: ")
+@{ List<string> dayList = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };}
+@Html.DropDownList("Pickup Day", new SelectList(dayList))
+<input type="submit" class="btn btn-default" value="Register"/>
 
