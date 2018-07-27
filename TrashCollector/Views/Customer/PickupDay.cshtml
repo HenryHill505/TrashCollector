@@ -1,7 +1,12 @@
-﻿
+﻿@model TrashCollector.Models.ApplicationUser
 @{
     ViewBag.Title = "PickupDay";
 }
 
 <h2>PickupDay</h2>
+
+@Html.Label("Current Pickup Day: ")
+<span>
+    @Model.PickupDay
+</span>
 
