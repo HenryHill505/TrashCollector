@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201807271525539_ForeignKeyinPickup.Designer.cs">
       <DependentUpon>201807271525539_ForeignKeyinPickup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807271629403_FixTypoinPickupModel.cs" />
+    <Compile Include="Migrations\201807271629403_FixTypoinPickupModel.Designer.cs">
+      <DependentUpon>201807271629403_FixTypoinPickupModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -339,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807271525539_ForeignKeyinPickup.resx">
       <DependentUpon>201807271525539_ForeignKeyinPickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807271629403_FixTypoinPickupModel.resx">
+      <DependentUpon>201807271629403_FixTypoinPickupModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
