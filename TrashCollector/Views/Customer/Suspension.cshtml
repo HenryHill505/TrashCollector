@@ -1,7 +1,20 @@
-﻿
+﻿@model TrashCollector.Models.Suspension
 @{
     ViewBag.Title = "Suspension";
 }
 
 <h2>Suspension</h2>
+
+@using (Html.BeginForm("Suspension", "Customer", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <p>
+        <span>Start Date:</span>
+        @Html.TextBox("StartDate", "", new { @class = "form-control" })
+    </p>
+    <p>
+        <span>End Date:</span>
+        @Html.TextBox("EndDate", "", new { @class = "form-control" })
+    </p>
+   <input type="submit" class="btn btn-default" value="Schedule Suspension" />
+}
 

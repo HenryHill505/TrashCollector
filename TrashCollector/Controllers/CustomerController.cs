@@ -67,5 +67,15 @@ namespace TrashCollector.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Suspension(Suspension suspensionDates)
+        {
+            string userId = User.Identity.GetUserId();
+            Suspension newSuspension = new Suspension() { UserID = userId, StartDate = suspensionDates.StartDate, EndDate = suspensionDates.EndDate };
+            db.Suspensions.Add(newSuspension);
+            db.SaveChanges();
+            return View("Index");
+        }
     }
 }
