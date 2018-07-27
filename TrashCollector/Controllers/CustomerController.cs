@@ -34,6 +34,16 @@ namespace TrashCollector.Controllers
             return View(user);
         }
 
+        [HttpPost]
+        public ActionResult PickupDay(string newPickupDay)
+        {
+            string Id = User.Identity.GetUserId();
+            var user = db.Users.Where(u => u.Id == Id).FirstOrDefault();
+            user.PickupDay = newPickupDay;
+            db.SaveChanges();
+            return View("Index");
+        }
+
         public ActionResult Suspension()
         {
             return View();
