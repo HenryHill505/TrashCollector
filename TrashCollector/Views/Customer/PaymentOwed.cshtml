@@ -16,3 +16,10 @@
     </p>
     <br />
 }
+
+<p>
+    Total:
+</p>
+<p>
+    @Model.Select(p => p.Cost).Sum()
+</p>
