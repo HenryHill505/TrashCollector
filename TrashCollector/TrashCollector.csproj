@@ -233,11 +233,20 @@
     <Compile Include="Migrations\201807271629403_FixTypoinPickupModel.Designer.cs">
       <DependentUpon>201807271629403_FixTypoinPickupModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807271950552_suspension.cs" />
+    <Compile Include="Migrations\201807271950552_suspension.Designer.cs">
+      <DependentUpon>201807271950552_suspension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807271953328_DBSetforSuspensions.cs" />
+    <Compile Include="Migrations\201807271953328_DBSetforSuspensions.Designer.cs">
+      <DependentUpon>201807271953328_DBSetforSuspensions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pickup.cs" />
+    <Compile Include="Models\Suspension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -346,6 +355,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807271629403_FixTypoinPickupModel.resx">
       <DependentUpon>201807271629403_FixTypoinPickupModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807271950552_suspension.resx">
+      <DependentUpon>201807271950552_suspension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807271953328_DBSetforSuspensions.resx">
+      <DependentUpon>201807271953328_DBSetforSuspensions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

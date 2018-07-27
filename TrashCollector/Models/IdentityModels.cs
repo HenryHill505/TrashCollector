@@ -42,5 +42,6 @@ namespace TrashCollector.Models
         }
 
         public DbSet<Pickup> Pickups { get; set; }
+        public DbSet<Suspension> Suspensions { get; set; }
     }
 }
