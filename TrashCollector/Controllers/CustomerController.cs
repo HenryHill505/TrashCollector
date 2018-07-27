@@ -22,6 +22,22 @@ namespace TrashCollector.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ExtraPickup(string date)
+        {
+            string userId = User.Identity.GetUserId();
+            DateTime pickupDate = new DateTime();
+            pickupDate = DateTime.Parse(date);
+            var test = db.Pickups.Where(p => p.UserId == userId).Where(p => p.Date == pickupDate);
+            if (db.Pickups.Where(p => p.UserId == userId).Where(p => p.Date == pickupDate).Count() == 0)
+            {
+                Pickup pickup = new Pickup { UserId = userId, Date = pickupDate, Status = "Incomplete", Cost = 1 };
+                db.Pickups.Add(pickup);
+                db.SaveChanges();
+            }
+            return View("Index");
+        }
+
         public ActionResult PaymentOwed()
         {
             string Id = User.Identity.GetUserId();
