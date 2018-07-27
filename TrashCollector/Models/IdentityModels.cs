@@ -40,5 +40,7 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Pickup> Pickups { get; set; }
     }
 }
