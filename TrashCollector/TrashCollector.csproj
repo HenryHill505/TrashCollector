@@ -196,6 +196,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,6 +241,14 @@
     <Compile Include="Migrations\201807271953328_DBSetforSuspensions.cs" />
     <Compile Include="Migrations\201807271953328_DBSetforSuspensions.Designer.cs">
       <DependentUpon>201807271953328_DBSetforSuspensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301336483_removeemployeeuser.cs" />
+    <Compile Include="Migrations\201807301336483_removeemployeeuser.Designer.cs">
+      <DependentUpon>201807301336483_removeemployeeuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301339047_removeemployeeuser1.cs" />
+    <Compile Include="Migrations\201807301339047_removeemployeeuser1.Designer.cs">
+      <DependentUpon>201807301339047_removeemployeeuser1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -317,6 +326,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Employee\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -361,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807271953328_DBSetforSuspensions.resx">
       <DependentUpon>201807271953328_DBSetforSuspensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301336483_removeemployeeuser.resx">
+      <DependentUpon>201807301336483_removeemployeeuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301339047_removeemployeeuser1.resx">
+      <DependentUpon>201807301339047_removeemployeeuser1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
