@@ -250,6 +250,18 @@
     <Compile Include="Migrations\201807301339047_removeemployeeuser1.Designer.cs">
       <DependentUpon>201807301339047_removeemployeeuser1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807301857038_PickupModel.cs" />
+    <Compile Include="Migrations\201807301857038_PickupModel.Designer.cs">
+      <DependentUpon>201807301857038_PickupModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301900119_PickupModel2.cs" />
+    <Compile Include="Migrations\201807301900119_PickupModel2.Designer.cs">
+      <DependentUpon>201807301900119_PickupModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807301901503_PickupModel3.cs" />
+    <Compile Include="Migrations\201807301901503_PickupModel3.Designer.cs">
+      <DependentUpon>201807301901503_PickupModel3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -379,6 +391,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807301339047_removeemployeeuser1.resx">
       <DependentUpon>201807301339047_removeemployeeuser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301857038_PickupModel.resx">
+      <DependentUpon>201807301857038_PickupModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301900119_PickupModel2.resx">
+      <DependentUpon>201807301900119_PickupModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301901503_PickupModel3.resx">
+      <DependentUpon>201807301901503_PickupModel3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

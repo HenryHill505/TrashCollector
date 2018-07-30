@@ -1,11 +1,10 @@
-﻿@model List<TrashCollector.Models.Pickup>
+﻿@using TrashCollector.Models
+@model List<Pickup>
 @{
     ViewBag.Title = "WeekdayPickups";
 }
 
 <h2>WeekdayPickups</h2>
-
-<button type ="button" onclick="changeDay('monday')">Change Day</button>
 
 <table>
     <tr>
@@ -19,6 +18,19 @@
 
 <div id="monday-section" class="day-section">
     Monday
+    @foreach(Pickup pickup in Model)
+    {
+        <table>
+            @if (pickup.Date.DayOfWeek.ToString() == "Monday")
+            {
+            <tr>
+                <td>@pickup.User.Email</td>
+                <td>@pickup.User.StreetAddress</td>
+                <td>@pickup.User.ZipCode</td>
+            </tr>
+            }
+        </table>
+    }
 </div>
 
 <div id="tuesday-section" class="day-section">
