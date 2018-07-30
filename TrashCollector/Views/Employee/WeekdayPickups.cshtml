@@ -1,7 +1,50 @@
-﻿
+﻿@model List<TrashCollector.Models.Pickup>
 @{
     ViewBag.Title = "WeekdayPickups";
 }
 
 <h2>WeekdayPickups</h2>
+
+<button type ="button" onclick="changeDay('monday')">Change Day</button>
+
+<table>
+    <tr>
+        <td onclick="changeDay('monday')"><a>Monday</a></td>
+        <td onclick="changeDay('tuesday')"><a>Tuesday</a></td>
+        <td onclick="changeDay('wednesday')"><a>Wednesday</a></td>
+        <td onclick="changeDay('thursday')"><a>Thursday</a></td>
+        <td onclick="changeDay('friday')"><a>Friday</a></td>
+    </tr>
+</table>
+
+<div id="monday-section" class="day-section">
+    Monday
+</div>
+
+<div id="tuesday-section" class="day-section">
+    Tuesday
+</div>
+
+<div id="wednesday-section" class="day-section">
+    Wednesday
+</div>
+
+<div id="thursday-section" class="day-section">
+    Thursday
+</div>
+
+<div id="friday-section" class="day-section">
+    Friday
+</div>
+
+<script>
+    function changeDay(day) {
+        sections = document.getElementsByClassName("day-section");
+        for (i = 0; i < sections.length; i++) {
+            sections[i].style.display = "none";
+        }
+        section = document.getElementById(day+"-section");
+        section.style.display = "block";
+    }
+</script>
 

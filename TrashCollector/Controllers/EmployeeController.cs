@@ -28,11 +28,14 @@ namespace TrashCollector.Controllers
             db.SaveChanges();
 
             return Index();
+        }
 
-            //string id = User.Identity.GetUserId();
-            //int zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipCode).FirstOrDefault();
-            //List<Pickup> pickups = db.Pickups.Where(p => p.User.ZipCode == zip).ToList();
-            //return View(pickups);
+        public ActionResult WeekdayPickups()
+        {
+            string id = User.Identity.GetUserId();
+            int zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipCode).FirstOrDefault();
+            List<Pickup> pickups = db.Pickups.Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
+            return View(pickups);
         }
     }
 }
