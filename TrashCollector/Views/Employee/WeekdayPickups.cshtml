@@ -16,16 +16,17 @@
     </tr>
 </table>
 
-<div id="monday-section" class="day-section">
-    Monday
+<div id="monday-section" class="day-section" style="display: none">
+    <h3>Monday Pickups</h3>
     @foreach(Pickup pickup in Model)
     {
         <table>
             @if (pickup.Date.DayOfWeek.ToString() == "Monday")
             {
             <tr>
-                <td>@pickup.User.Email</td>
-                <td>@pickup.User.StreetAddress</td>
+                <td>@pickup.User.FirstName</td>
+                <td>@pickup.User.LastName | </td>
+                <td>@pickup.User.StreetAddress,</td>
                 <td>@pickup.User.ZipCode</td>
             </tr>
             }
@@ -33,20 +34,76 @@
     }
 </div>
 
-<div id="tuesday-section" class="day-section">
-    Tuesday
+<div id="tuesday-section" class="day-section" style="display: none">
+    <h3>Tuesday Pickups</h3>
+    @foreach (Pickup pickup in Model)
+    {
+        <table>
+            @if (pickup.Date.DayOfWeek.ToString() == "Tuesday")
+            {
+                <tr>
+                    <td>@pickup.User.FirstName</td>
+                    <td>@pickup.User.LastName | </td>
+                    <td>@pickup.User.StreetAddress,</td>
+                    <td>@pickup.User.ZipCode</td>
+                </tr>
+            }
+        </table>
+    }
 </div>
 
-<div id="wednesday-section" class="day-section">
-    Wednesday
+<div id="wednesday-section" class="day-section" style="display: none">
+    <h3>Wednesday Pickups</h3>
+    @foreach (Pickup pickup in Model)
+    {
+        <table>
+            @if (pickup.Date.DayOfWeek.ToString() == "Wednesday")
+            {
+            <tr>
+                <td>@pickup.User.FirstName</td>
+                <td>@pickup.User.LastName | </td>
+                <td>@pickup.User.StreetAddress,</td>
+                <td>@pickup.User.ZipCode</td>
+            </tr>
+            }
+        </table>
+    }
 </div>
 
-<div id="thursday-section" class="day-section">
-    Thursday
+<div id="thursday-section" class="day-section" style="display: none">
+    <h3>Thursday Pickups</h3>
+    @foreach (Pickup pickup in Model)
+    {
+        <table>
+            @if (pickup.Date.DayOfWeek.ToString() == "Thursday")
+            {
+            <tr>
+                <td>@pickup.User.FirstName</td>
+                <td>@pickup.User.LastName | </td>
+                <td>@pickup.User.StreetAddress,</td>
+                <td>@pickup.User.ZipCode</td>
+            </tr>
+            }
+        </table>
+    }
 </div>
 
-<div id="friday-section" class="day-section">
-    Friday
+<div id="friday-section" class="day-section" style="display: none">
+    <h3>Friday Pickups</h3>
+    @foreach (Pickup pickup in Model)
+    {
+        <table>
+            @if (pickup.Date.DayOfWeek.ToString() == "Friday")
+            {
+            <tr>
+                <td>@pickup.User.FirstName</td>
+                <td>@pickup.User.LastName | </td>
+                <td>@pickup.User.StreetAddress,</td>
+                <td>@pickup.User.ZipCode</td>
+            </tr>
+            }
+        </table>
+    }
 </div>
 
 <script>

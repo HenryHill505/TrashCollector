@@ -37,5 +37,10 @@ namespace TrashCollector.Controllers
             List<Pickup> pickups = db.Pickups.Include("User").Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
             return View(pickups);
         }
+
+        public ActionResult CustomerProfile()
+        {
+            return View();
+        }
     }
 }
