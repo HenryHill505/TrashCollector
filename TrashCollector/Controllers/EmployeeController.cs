@@ -17,8 +17,22 @@ namespace TrashCollector.Controllers
         {
             string id = User.Identity.GetUserId();
             int zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipCode).FirstOrDefault();
-            List<Pickup> pickups = db.Pickups.Where(p => p.User.ZipCode == zip).ToList();
-            return View(pickups);
+            List<Pickup> pickups = db.Pickups.Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
+            return View("Index", pickups);
+        }
+
+        public ActionResult CompletePickup(int Id)
+        {
+            Pickup completedPickup = db.Pickups.Where(p => p.Id == Id).FirstOrDefault();
+            completedPickup.Status = "Complete";
+            db.SaveChanges();
+
+            return Index();
+
+            //string id = User.Identity.GetUserId();
+            //int zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipCode).FirstOrDefault();
+            //List<Pickup> pickups = db.Pickups.Where(p => p.User.ZipCode == zip).ToList();
+            //return View(pickups);
         }
     }
 }

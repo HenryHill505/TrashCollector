@@ -1,7 +1,17 @@
-﻿
+﻿@model List<TrashCollector.Models.Pickup>
+@using TrashCollector.Models
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Pickups</h2>
+
+@for(int i = 0; i < Model.Count(); i++)
+{
+    <p>
+        @Model[i].Date
+    </p>
+    @Html.ActionLink("Complete Pickup","CompletePickup", new { Id = Model[i].Id})
+}
+
 
