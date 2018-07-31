@@ -3,7 +3,7 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title.</h2>x
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -80,8 +80,14 @@
     <div class="form-group">
         @Html.Label("User Role", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(m => m.UserRole, "Customer", new { @class = "radio-inline" })@Html.Label("Customer")
-            @Html.RadioButtonFor(m => m.UserRole, "Employee", new { @class = "radio-inline" })@Html.Label("Employee")
+            @Html.RadioButtonFor(m => m.UserRole, "Customer", new { @class = "radio-inline", onclick = "hideZipAssignment()" })@Html.Label("Customer")
+            @Html.RadioButtonFor(m => m.UserRole, "Employee", new { @class = "radio-inline", onclick = "revealZipAssignment()" })@Html.Label("Employee")
+        </div>
+    </div>
+    <div class="form-group" id="zip-assignment-block" style = "display: none">
+        @Html.Label("Zip Assignment", new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.ZipAssignment, new { @class = "col-md-2 control-label", id = "zip-assignment-textbox" })
         </div>
     </div>
     <div class="form-group">
@@ -90,6 +96,19 @@
         </div>
     </div>
 }
+
+<script>
+    function revealZipAssignment() {
+        let zipBlock = document.getElementById("zip-assignment-block");
+        zipBlock.style.display = "block";
+    }
+    function hideZipAssignment() {
+        let zipBlock = document.getElementById("zip-assignment-block");
+        let zipBox = document.getElementById("zip-assignment-textbox");
+        zipBox.value = "";
+        zipBlock.style.display = "none";
+    }
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
