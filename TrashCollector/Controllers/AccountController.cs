@@ -406,6 +406,27 @@ namespace TrashCollector.Controllers
             return View();
         }
 
+        public ActionResult Redirect()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                string Id = User.Identity.GetUserId();
+                string role = db.Users.Where(u => u.Id == Id).Select(u => u.UserRole).FirstOrDefault();
+                if (role == "Employee")
+                {
+                    return RedirectToAction("Index", "Employee");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Customer");
+                }
+            }
+            else
+            {
+                return View("Login");
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
