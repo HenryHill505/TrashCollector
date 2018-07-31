@@ -1,9 +1,11 @@
 ﻿@model TrashCollector.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+                /**/
+
+                ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>x
+<h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -11,6 +13,13 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("User Role", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => m.UserRole, "Customer", new { @class = "radio-inline", onclick = "showCustomerFields()" })@Html.Label("Customer")
+            @Html.RadioButtonFor(m => m.UserRole, "Employee", new { @class = "radio-inline", onclick = "showEmployeeFields()" })@Html.Label("Employee")
+        </div>
+    </div>
     <div class=" form-group">
         @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
@@ -65,10 +74,10 @@
             @Html.TextBoxFor(m => m.State, new { @class = "col-md-2 form-control" })
         </div>
     </div>
-    <div class=" form-group">
+    <div class=" form-group" id="day-block">
         @Html.LabelFor(m => m.PickupDay, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(m => m.PickupDay, new { @class = "col-md-2 form-control" })
+            @Html.DropDownListFor(m => m.PickupDay, new SelectList(new List<string> {"Monday", "Tuesday", "Wednesday", "Thursday" ,"Friday" }))
         </div>
     </div>
     <div class=" form-group">
@@ -77,17 +86,11 @@
             @Html.TextBoxFor(m => m.PickupRate, new { @class = "col-md-2 form-control" })
         </div>
     </div>
-    <div class="form-group">
-        @Html.Label("User Role", new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.RadioButtonFor(m => m.UserRole, "Customer", new { @class = "radio-inline", onclick = "hideZipAssignment()" })@Html.Label("Customer")
-            @Html.RadioButtonFor(m => m.UserRole, "Employee", new { @class = "radio-inline", onclick = "revealZipAssignment()" })@Html.Label("Employee")
-        </div>
-    </div>
-    <div class="form-group" id="zip-assignment-block" style = "display: none">
+
+    <div class="form-group" id="zip-assignment-block" style="display: none">
         @Html.Label("Zip Assignment", new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(m => m.ZipAssignment, new { @class = "col-md-2 control-label", id = "zip-assignment-textbox" })
+            @Html.TextBoxFor(m => m.ZipAssignment, new { @class = "col-md-2 form-control", id = "zip-assignment-textbox" })
         </div>
     </div>
     <div class="form-group">
@@ -98,15 +101,16 @@
 }
 
 <script>
-    function revealZipAssignment() {
-        let zipBlock = document.getElementById("zip-assignment-block");
-        zipBlock.style.display = "block";
+    function showEmployeeFields() {
+        document.getElementById("zip-assignment-block").style.display = "block";
+        document.getElementById("day-block").style.display = "none";
+        document.getElementById("day-textbox").value = "";
+
     }
-    function hideZipAssignment() {
-        let zipBlock = document.getElementById("zip-assignment-block");
-        let zipBox = document.getElementById("zip-assignment-textbox");
-        zipBox.value = "";
-        zipBlock.style.display = "none";
+    function showCustomerFields() {
+        document.getElementById("zip-assignment-block").style.display = "none";
+        document.getElementById("zip-assignment-textbox").value = "";
+        document.getElementById("day-block").style.display = "block";
     }
 </script>
 
