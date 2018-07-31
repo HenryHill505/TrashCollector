@@ -1,12 +1,14 @@
 ﻿
-@model TrashCollector.Models.Pickup
+@model TrashCollector.Models.ApplicationUser
 @{
     ViewBag.Title = "CustomerProfile";
 }
 
 <h2>Employee Page</h2>
-<div id="address-block">
-720 W Brittingham Place
+
+<div>
+    <p id="address-block">@Model.StreetAddress</p>
+    <p><span>@Model.ZipCode</span><span>, @Model.City @Model.State</span></p>
 </div>
 <div id="map" style="height: 200px; width: 200px"></div>
 

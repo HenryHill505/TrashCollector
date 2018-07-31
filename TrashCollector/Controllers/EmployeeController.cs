@@ -38,10 +38,11 @@ namespace TrashCollector.Controllers
             return View(pickups);
         }
 
-        public ActionResult CustomerProfile()
+        public ActionResult CustomerProfile(string Id)
         {
+            ApplicationUser customer = db.Users.Where(c => c.Id == Id).FirstOrDefault();
             ViewBag.APIString = Keychain.APIString;
-            return View();
+            return View(customer);
         }
     }
 }
