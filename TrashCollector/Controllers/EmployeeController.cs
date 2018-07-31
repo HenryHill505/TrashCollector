@@ -40,6 +40,7 @@ namespace TrashCollector.Controllers
 
         public ActionResult CustomerProfile()
         {
+            ViewBag.APIString = Keychain.APIString;
             return View();
         }
     }

@@ -1,10 +1,14 @@
-﻿@model TrashCollector.Models.Pickup
+﻿
+@model TrashCollector.Models.Pickup
 @{
     ViewBag.Title = "CustomerProfile";
 }
 
 <h2>Employee Page</h2>
-<div id="map"></div>
+<div id="map" style="height: 200px; width: 200px"></div>
+
+<script src=@ViewBag.APIString
+        async defer></script>
 <script>
     var map;
     function initMap() {
@@ -15,8 +19,8 @@
     }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-        async defer></script>
+
+
 
 
 
