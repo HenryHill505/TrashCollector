@@ -24,9 +24,8 @@
             @if (pickup.Date.DayOfWeek.ToString() == "Monday")
             {
             <tr>
-                <td>@pickup.User.FirstName</td>
-                <td>@pickup.User.LastName | </td>
-                <td>@pickup.User.StreetAddress,</td>
+                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                <td> | @pickup.User.StreetAddress,</td>
                 <td>@pickup.User.ZipCode</td>
             </tr>
             }
@@ -41,12 +40,11 @@
         <table>
             @if (pickup.Date.DayOfWeek.ToString() == "Tuesday")
             {
-                <tr>
-                    <td>@pickup.User.FirstName</td>
-                    <td>@pickup.User.LastName | </td>
-                    <td>@pickup.User.StreetAddress,</td>
-                    <td>@pickup.User.ZipCode</td>
-                </tr>
+            <tr>
+                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                <td> | @pickup.User.StreetAddress,</td>
+                <td>@pickup.User.ZipCode</td>
+            </tr>
             }
         </table>
     }
@@ -60,9 +58,8 @@
             @if (pickup.Date.DayOfWeek.ToString() == "Wednesday")
             {
             <tr>
-                <td>@pickup.User.FirstName</td>
-                <td>@pickup.User.LastName | </td>
-                <td>@pickup.User.StreetAddress,</td>
+                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                <td> | @pickup.User.StreetAddress,</td>
                 <td>@pickup.User.ZipCode</td>
             </tr>
             }
@@ -78,9 +75,8 @@
             @if (pickup.Date.DayOfWeek.ToString() == "Thursday")
             {
             <tr>
-                <td>@pickup.User.FirstName</td>
-                <td>@pickup.User.LastName | </td>
-                <td>@pickup.User.StreetAddress,</td>
+                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                <td> | @pickup.User.StreetAddress,</td>
                 <td>@pickup.User.ZipCode</td>
             </tr>
             }
@@ -96,9 +92,8 @@
             @if (pickup.Date.DayOfWeek.ToString() == "Friday")
             {
             <tr>
-                <td>@pickup.User.FirstName</td>
-                <td>@pickup.User.LastName | </td>
-                <td>@pickup.User.StreetAddress,</td>
+                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                <td> | @pickup.User.StreetAddress,</td>
                 <td>@pickup.User.ZipCode</td>
             </tr>
             }
