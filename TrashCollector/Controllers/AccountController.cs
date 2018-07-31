@@ -153,7 +153,7 @@ namespace TrashCollector.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, StreetAddress = model.StreetAddress, ZipCode = model.ZipCode, City = model.City, State = model.State, PickupDay = model.PickupDay, PickupRate = model.PickupRate, Email = model.Email, UserName = model.Email, UserRole = model.UserRole };
+                var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, StreetAddress = model.StreetAddress, ZipCode = model.ZipCode, City = model.City, State = model.State, PickupDay = model.PickupDay, PickupRate = model.PickupRate, Email = model.Email, UserName = model.Email, UserRole = model.UserRole, ZipAssigment = model.ZipAssignment };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

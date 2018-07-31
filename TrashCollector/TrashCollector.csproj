@@ -263,6 +263,10 @@
     <Compile Include="Migrations\201807301901503_PickupModel3.Designer.cs">
       <DependentUpon>201807301901503_PickupModel3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807311931228_ZipAssigment.cs" />
+    <Compile Include="Migrations\201807311931228_ZipAssigment.Designer.cs">
+      <DependentUpon>201807311931228_ZipAssigment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -401,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807301901503_PickupModel3.resx">
       <DependentUpon>201807301901503_PickupModel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311931228_ZipAssigment.resx">
+      <DependentUpon>201807311931228_ZipAssigment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
