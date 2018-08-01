@@ -74,10 +74,10 @@
             @Html.TextBoxFor(m => m.State, new { @class = "col-md-2 form-control" })
         </div>
     </div>
-    <div class=" form-group" id="day-block">
+    <div class=" form-group" id="day-block" style="display: none">
         @Html.LabelFor(m => m.PickupDay, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.DropDownListFor(m => m.PickupDay, new SelectList(new List<string> {"Monday", "Tuesday", "Wednesday", "Thursday" ,"Friday" }), new { @class = "col-md-2 form-control", id = "day-textbox" })
+            @Html.DropDownListFor(m => m.PickupDay, new SelectList(new List<string> {"Monday", "Tuesday", "Wednesday", "Thursday" ,"Friday" }), new { @class = "col-md-2 form-control", id = "day-textbox", selected="Monday" })
         </div>
     </div>
     <div class="form-group" id="zip-assignment-block" style="display: none">
@@ -97,8 +97,6 @@
     function showEmployeeFields() {
         document.getElementById("zip-assignment-block").style.display = "block";
         document.getElementById("day-block").style.display = "none";
-        document.getElementById("day-textbox").value = "";
-
     }
     function showCustomerFields() {
         document.getElementById("zip-assignment-block").style.display = "none";
