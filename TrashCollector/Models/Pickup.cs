@@ -17,6 +17,6 @@ namespace TrashCollector.Models
         public DateTime Date { get; set; }
         public string Status { get; set; }
         public double Cost { get; set; }
-
+        public string Type { get; set; }
     }
 }

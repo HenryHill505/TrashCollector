@@ -15,7 +15,7 @@ namespace TrashCollector
         {
             ConfigureAuth(app);
             CreateRolesandUsers();
-            SchedulePickups();
+            PickupManager.UpdatePickups();
         }
 
         public void CreateRolesandUsers()

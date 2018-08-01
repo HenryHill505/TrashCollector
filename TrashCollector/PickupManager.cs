@@ -8,7 +8,7 @@ namespace TrashCollector
 {
     public static class PickupManager
     {
-        public static DateTime GetWeekStart(DateTime initialDate)
+        private static DateTime GetWeekStart(DateTime initialDate)
         {
             DateTime dateObject = initialDate;
             if (dateObject.DayOfWeek.ToString() == "Saturday") { return dateObject.AddDays(2); }
@@ -20,7 +20,7 @@ namespace TrashCollector
             return dateObject;
         }
 
-        public static DateTime GetWeekEnd(DateTime initialDate)
+        private static DateTime GetWeekEnd(DateTime initialDate)
         {
             DateTime dateObject = initialDate;
             if (dateObject.DayOfWeek.ToString() == "Saturday") { return dateObject.AddDays(6); }
