@@ -409,6 +409,7 @@ namespace TrashCollector.Controllers
 
         public ActionResult Redirect()
         {
+            PickupManager.UpdatePickups();
             if (User.Identity.IsAuthenticated)
             {
                 string Id = User.Identity.GetUserId();
