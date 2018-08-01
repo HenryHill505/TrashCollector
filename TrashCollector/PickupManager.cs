@@ -8,6 +8,30 @@ namespace TrashCollector
 {
     public static class PickupManager
     {
+        public static DateTime GetWeekStart(DateTime initialDate)
+        {
+            DateTime dateObject = initialDate;
+            if (dateObject.DayOfWeek.ToString() == "Saturday") { return dateObject.AddDays(2); }
+            if (dateObject.DayOfWeek.ToString() == "Sunday") { return dateObject.AddDays(1); }
+            while (dateObject.DayOfWeek.ToString() != "Monday")
+            {
+                dateObject = dateObject.AddDays(-1);
+            }
+            return dateObject;
+        }
+
+        public static DateTime GetWeekEnd(DateTime initialDate)
+        {
+            DateTime dateObject = initialDate;
+            if (dateObject.DayOfWeek.ToString() == "Saturday") { return dateObject.AddDays(6); }
+            if (dateObject.DayOfWeek.ToString() == "Sunday") { return dateObject.AddDays(5); }
+            while (dateObject.DayOfWeek.ToString() != "Friday")
+            {
+                dateObject = dateObject.AddDays(1);
+            }
+            return dateObject;
+        }
+
         public static void UpdatePickups()
         {
             ApplicationDbContext db = new ApplicationDbContext();
