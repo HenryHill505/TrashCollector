@@ -16,7 +16,7 @@ namespace TrashCollector.Controllers
         public ActionResult Index()
         {
             string id = User.Identity.GetUserId();
-            int zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipCode).FirstOrDefault();
+            int? zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipAssigment).FirstOrDefault();
             List<Pickup> pickups = db.Pickups.Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
             return View("Index", pickups);
         }
@@ -33,7 +33,7 @@ namespace TrashCollector.Controllers
         public ActionResult WeekdayPickups()
         {
             string id = User.Identity.GetUserId();
-            int zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipCode).FirstOrDefault();
+            int? zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipAssigment).FirstOrDefault();
             List<Pickup> pickups = db.Pickups.Include("User").Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
             return View(pickups);
         }
