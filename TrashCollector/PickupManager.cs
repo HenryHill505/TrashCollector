@@ -45,7 +45,7 @@ namespace TrashCollector
                 DateTime pickupDay = DateTime.Today;
                 while(pickupDay < weekEnd && pickupDay.DayOfWeek.ToString() != user.PickupDay)
                 {
-                    pickupDay.AddDays(1);
+                    pickupDay = pickupDay.AddDays(1);
                 }
                 //while (pickupDay.DayOfWeek.ToString() != user.PickupDay && (pickupDay.DayOfWeek.ToString() != "Saturday" && pickupDay.DayOfWeek.ToString() != "Sunday"))
                 //{
@@ -54,11 +54,37 @@ namespace TrashCollector
 
                 if (pickupDay.DayOfWeek.ToString() == user.PickupDay && pickups.Where(p => p.UserId == user.Id).Where(p => p.Date == pickupDay.Date).Count() == 0)
                 {
-                    Pickup pickup = new Pickup() { UserId = user.Id, User = user, Date = pickupDay.Date, Cost = 10, Status = "Incomplete" };
+                    Pickup pickup = new Pickup() { UserId = user.Id, User = user, Date = pickupDay.Date, Cost = 10, Status = "Incomplete", Type = "Weekly" };
                     db.Pickups.Add(pickup);
                 }
             }
             db.SaveChanges();
+        }
+
+        public static void RemoveExtraWeeklyPickups(string userId)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            ApplicationUser user = db.Users.Where(u => u.Id == userId).FirstOrDefault();
+
+            
+        }
+
+        public static bool HasUserHadPickupThisWeek(string userId)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            ApplicationUser user = db.Users.Where(u => u.Id == userId).FirstOrDefault();
+            DateTime weekStart = GetWeekStart(DateTime.Today);
+
+            List<Pickup> pickupsThisWeek = db.Pickups.Where(p => p.User == user).Where(p => p.Date >= weekStart && p.Date < DateTime.Today).Where(p => p.Type == "Weekly").ToList();
+
+            if (pickupsThisWeek.Count() == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
