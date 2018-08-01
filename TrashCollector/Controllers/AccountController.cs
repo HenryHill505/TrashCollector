@@ -167,7 +167,7 @@ namespace TrashCollector.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     //await this.UserManager.AddToRoleAsync(user.Id, model.UserRole);
-                    return RedirectToAction("Index", "Customer");
+                    return RedirectToAction("Redirect");
                 }
                 AddErrors(result);
             }
