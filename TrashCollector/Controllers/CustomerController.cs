@@ -25,6 +25,11 @@ namespace TrashCollector.Controllers
         [HttpPost]
         public ActionResult ExtraPickup(string date)
         {
+            DateTime dateResult;
+            if (!DateTime.TryParse(date, out dateResult))
+            {
+                return ExtraPickup();
+            }
             string userId = User.Identity.GetUserId();
             DateTime pickupDate = new DateTime();
             pickupDate = DateTime.Parse(date);

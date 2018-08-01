@@ -15,7 +15,7 @@
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
-        @Html.LabelFor(m => m.PickupDay, new { @class = "col-md-2, control-label" })
+        
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.PickupDay, new SelectList(dayList), new { @class = "form-control" })
         </div>
