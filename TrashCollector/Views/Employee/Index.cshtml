@@ -4,14 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Pickups</h2>
+<h2>Today's Pickups</h2>
 
-@for(int i = 0; i < Model.Count(); i++)
+@foreach (Pickup pickup in Model)
 {
-    <p>
-        @Model[i].Date
-    </p>
-    @Html.ActionLink("Complete Pickup","CompletePickup", new { Id = Model[i].Id})
+<p>
+    @Html.ActionLink(@pickup.User.FirstName + " " + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id }) | @pickup.User.StreetAddress | @Html.ActionLink("Complete Pickup", "CompletePickup", new { Id = pickup.Id })
+</p>
 }
 
 

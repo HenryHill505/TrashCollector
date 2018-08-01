@@ -17,7 +17,7 @@ namespace TrashCollector.Controllers
         {
             string id = User.Identity.GetUserId();
             int? zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipAssigment).FirstOrDefault();
-            List<Pickup> pickups = db.Pickups.Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
+            List<Pickup> pickups = db.Pickups.Include("User").Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
             return View("Index", pickups);
         }
 

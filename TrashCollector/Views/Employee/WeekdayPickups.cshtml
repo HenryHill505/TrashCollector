@@ -24,7 +24,7 @@
             @if (pickup.Date.DayOfWeek.ToString() == "Monday")
             {
             <tr>
-                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                <td>@Html.ActionLink(@pickup.User.FirstName + " " + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
                 <td> | @pickup.User.StreetAddress,</td>
                 <td>@pickup.User.ZipCode</td>
             </tr>
