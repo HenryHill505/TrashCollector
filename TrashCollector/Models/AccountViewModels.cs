@@ -116,7 +116,7 @@ namespace TrashCollector.Models
         [Display(Name = "Role")]
         public string UserRole { get; set; }
 
-        public int ZipAssignment { get; set; }
+        public int? ZipAssignment { get; set; }
 
     }
 
