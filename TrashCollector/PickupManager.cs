@@ -65,8 +65,17 @@ namespace TrashCollector
         {
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.Where(u => u.Id == userId).FirstOrDefault();
+            DateTime weekEnd = GetWeekEnd(DateTime.Today);
 
-            
+            List<Pickup> thisWeeksPickups = db.Pickups.Where(p => p.User == user).Where(p => p.Date >= DateTime.Today && p.Date <= weekEnd).Where(p => p.Type == "Weekly").ToList();
+            foreach(Pickup pickup in thisWeeksPickups)
+            {
+                if (pickup.Date.DayOfWeek.ToString() != user.PickupDay)
+                {
+                    db.Pickups.Remove(pickup);
+                }
+            }
+            db.SaveChanges();
         }
 
         public static bool HasUserHadPickupThisWeek(string userId)
