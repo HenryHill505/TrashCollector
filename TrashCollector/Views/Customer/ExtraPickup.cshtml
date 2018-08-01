@@ -6,7 +6,8 @@
 <h2>ExtraPickup</h2>
 @using (Html.BeginForm("ExtraPickup", "Customer", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    @Html.TextBox("Date", "MM/dd/yyyy", new {@class = "form-control"})
+    <p>Enter Date in format MM/dd/yyyy</p>
+    @Html.TextBox("Date","", new {@class = "form-control"})
     <input type="submit" class="btn btn-default" value="Schedule Pickup" />
 }
 

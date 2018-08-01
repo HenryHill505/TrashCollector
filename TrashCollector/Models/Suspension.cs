@@ -14,7 +14,9 @@ namespace TrashCollector.Models
         [ForeignKey("User")]
         public string UserID { get; set; }
         public ApplicationUser User { get; set; }
+        [Required]
         public DateTime StartDate { get; set; }
+        [Required]
         public DateTime EndDate { get; set; }
 
     }
