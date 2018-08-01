@@ -69,7 +69,7 @@ namespace TrashCollector
             ApplicationUser user = db.Users.Where(u => u.Id == userId).FirstOrDefault();
             DateTime weekEnd = GetWeekEnd(DateTime.Today);
 
-            List<Pickup> thisWeeksPickups = db.Pickups.Where(p => p.User == user).Where(p => p.Date >= DateTime.Today && p.Date <= weekEnd).Where(p => p.Type == "Weekly").ToList();
+            List<Pickup> thisWeeksPickups = db.Pickups.Where(p => p.User.Id == userId).Where(p => p.Date >= DateTime.Today && p.Date <= weekEnd).Where(p => p.Type == "Weekly").ToList();
             foreach(Pickup pickup in thisWeeksPickups)
             {
                 if (pickup.Date.DayOfWeek.ToString() != user.PickupDay)
@@ -83,10 +83,9 @@ namespace TrashCollector
         public static bool HasUserHadPickupThisWeek(string userId)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            ApplicationUser user = db.Users.Where(u => u.Id == userId).FirstOrDefault();
             DateTime weekStart = GetWeekStart(DateTime.Today);
 
-            List<Pickup> pickupsThisWeek = db.Pickups.Where(p => p.User == user).Where(p => p.Date >= weekStart && p.Date < DateTime.Today).Where(p => p.Type == "Weekly").ToList();
+            List<Pickup> pickupsThisWeek = db.Pickups.Where(p => p.User.Id == userId).Where(p => p.Date >= weekStart && p.Date < DateTime.Today).Where(p => p.Type == "Weekly").ToList();
 
             if (pickupsThisWeek.Count() == 0)
             {
