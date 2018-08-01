@@ -52,7 +52,7 @@ namespace TrashCollector
                 //    pickupDay = pickupDay.AddDays(1);
                 //}
 
-                if (pickupDay.DayOfWeek.ToString() == user.PickupDay && pickups.Where(p => p.UserId == user.Id).Where(p => p.Date == pickupDay.Date).Count() == 0)
+                if (pickupDay.DayOfWeek.ToString() == user.PickupDay && pickups.Where(p => p.UserId == user.Id).Where(p => p.Date == pickupDay.Date).Count() == 0 && !HasUserHadPickupThisWeek(user.Id))
                 {
                     Pickup pickup = new Pickup() { UserId = user.Id, User = user, Date = pickupDay.Date, Cost = 10, Status = "Incomplete", Type = "Weekly" };
                     db.Pickups.Add(pickup);

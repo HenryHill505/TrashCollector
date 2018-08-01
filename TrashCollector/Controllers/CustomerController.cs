@@ -31,7 +31,7 @@ namespace TrashCollector.Controllers
             var test = db.Pickups.Where(p => p.UserId == userId).Where(p => p.Date == pickupDate);
             if (db.Pickups.Where(p => p.UserId == userId).Where(p => p.Date == pickupDate).Count() == 0)
             {
-                Pickup pickup = new Pickup { UserId = userId, Date = pickupDate, Status = "Incomplete", Cost = 1 };
+                Pickup pickup = new Pickup { UserId = userId, Date = pickupDate, Status = "Incomplete", Cost = 1, Type = "Extra" };
                 db.Pickups.Add(pickup);
                 db.SaveChanges();
             }
@@ -59,6 +59,8 @@ namespace TrashCollector.Controllers
             string Id = User.Identity.GetUserId();
             var user = db.Users.Where(u => u.Id == Id).FirstOrDefault();
             user.PickupDay = postedUser.PickupDay;
+            PickupManager.RemoveExtraWeeklyPickups(Id);
+            PickupManager.UpdatePickups();
             db.SaveChanges();
             return View("Index");
         }
