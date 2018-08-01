@@ -59,9 +59,9 @@ namespace TrashCollector.Controllers
             string Id = User.Identity.GetUserId();
             var user = db.Users.Where(u => u.Id == Id).FirstOrDefault();
             user.PickupDay = postedUser.PickupDay;
+            db.SaveChanges();
             PickupManager.RemoveExtraWeeklyPickups(Id);
             PickupManager.UpdatePickups();
-            db.SaveChanges();
             return View("Index");
         }
 
