@@ -167,6 +167,7 @@ namespace TrashCollector.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     //await this.UserManager.AddToRoleAsync(user.Id, model.UserRole);
+                    PickupManager.UpdatePickups();
                     return RedirectToAction("Redirect");
                 }
                 AddErrors(result);
@@ -396,7 +397,7 @@ namespace TrashCollector.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Redirect");
         }
 
         //

@@ -83,7 +83,7 @@ namespace TrashCollector.Controllers
             {
                 return View();
             }
-            if (suspensionDates.StartDate < suspensionDates.EndDate)
+            if (suspensionDates.StartDate > suspensionDates.EndDate)
             {
                 return View();
             }
