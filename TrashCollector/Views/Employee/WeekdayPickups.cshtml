@@ -4,30 +4,31 @@
     ViewBag.Title = "WeekdayPickups";
 }
 
-<h2>WeekdayPickups</h2>
+<h2>This Week's Pickups</h2>
+
 
 <table>
     <tr>
-        <td onclick="changeDay('monday')"><a>Monday</a></td>
-        <td onclick="changeDay('tuesday')"><a>Tuesday</a></td>
-        <td onclick="changeDay('wednesday')"><a>Wednesday</a></td>
-        <td onclick="changeDay('thursday')"><a>Thursday</a></td>
+        <td onclick="changeDay('monday')"><a>Monday</a> | </td>
+        <td onclick="changeDay('tuesday')"><a>Tuesday</a> | </td>
+        <td onclick="changeDay('wednesday')"><a>Wednesday</a> | </td>
+        <td onclick="changeDay('thursday')"><a>Thursday</a> | </td>
         <td onclick="changeDay('friday')"><a>Friday</a></td>
     </tr>
 </table>
 
 <div id="monday-section" class="day-section" style="display: none">
     <h3>Monday Pickups</h3>
-    @foreach(Pickup pickup in Model)
+    @foreach (Pickup pickup in Model)
     {
         <table>
             @if (pickup.Date.DayOfWeek.ToString() == "Monday")
             {
-            <tr>
-                <td>@Html.ActionLink(@pickup.User.FirstName + " " + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
-                <td> | @pickup.User.StreetAddress,</td>
-                <td>@pickup.User.ZipCode</td>
-            </tr>
+                <tr>
+                    <td>@Html.ActionLink(@pickup.User.FirstName + " " + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                    <td> | @pickup.User.StreetAddress,</td>
+                    <td>@pickup.User.ZipCode</td>
+                </tr>
             }
         </table>
     }
@@ -40,11 +41,11 @@
         <table>
             @if (pickup.Date.DayOfWeek.ToString() == "Tuesday")
             {
-            <tr>
-                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
-                <td> | @pickup.User.StreetAddress,</td>
-                <td>@pickup.User.ZipCode</td>
-            </tr>
+                <tr>
+                    <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                    <td> | @pickup.User.StreetAddress,</td>
+                    <td>@pickup.User.ZipCode</td>
+                </tr>
             }
         </table>
     }
@@ -57,11 +58,11 @@
         <table>
             @if (pickup.Date.DayOfWeek.ToString() == "Wednesday")
             {
-            <tr>
-                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
-                <td> | @pickup.User.StreetAddress,</td>
-                <td>@pickup.User.ZipCode</td>
-            </tr>
+                <tr>
+                    <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                    <td> | @pickup.User.StreetAddress,</td>
+                    <td>@pickup.User.ZipCode</td>
+                </tr>
             }
         </table>
     }
@@ -74,11 +75,11 @@
         <table>
             @if (pickup.Date.DayOfWeek.ToString() == "Thursday")
             {
-            <tr>
-                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
-                <td> | @pickup.User.StreetAddress,</td>
-                <td>@pickup.User.ZipCode</td>
-            </tr>
+                <tr>
+                    <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                    <td> | @pickup.User.StreetAddress,</td>
+                    <td>@pickup.User.ZipCode</td>
+                </tr>
             }
         </table>
     }
@@ -91,15 +92,16 @@
         <table>
             @if (pickup.Date.DayOfWeek.ToString() == "Friday")
             {
-            <tr>
-                <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
-                <td> | @pickup.User.StreetAddress,</td>
-                <td>@pickup.User.ZipCode</td>
-            </tr>
+                <tr>
+                    <td>@Html.ActionLink(@pickup.User.FirstName + @pickup.User.LastName, "CustomerProfile", new { Id = pickup.User.Id })</td>
+                    <td> | @pickup.User.StreetAddress,</td>
+                    <td>@pickup.User.ZipCode</td>
+                </tr>
             }
         </table>
     }
 </div>
+@Html.ActionLink("View today's pickups", "Index")
 
 <script>
     function changeDay(day) {
@@ -107,7 +109,7 @@
         for (i = 0; i < sections.length; i++) {
             sections[i].style.display = "none";
         }
-        section = document.getElementById(day+"-section");
+        section = document.getElementById(day + "-section");
         section.style.display = "block";
     }
 </script>
