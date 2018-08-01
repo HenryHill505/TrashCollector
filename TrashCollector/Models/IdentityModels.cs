@@ -17,7 +17,6 @@ namespace TrashCollector.Models
         public string City { get; set; }
         public string State { get; set; }
         public string PickupDay { get; set; }
-        public string PickupRate { get; set; }
         public string UserRole { get; set; }
         public int? ZipAssigment { get; set; }
 

@@ -80,13 +80,6 @@
             @Html.DropDownListFor(m => m.PickupDay, new SelectList(new List<string> {"Monday", "Tuesday", "Wednesday", "Thursday" ,"Friday" }), new { @class = "col-md-2 form-control", id = "day-textbox" })
         </div>
     </div>
-    <div class=" form-group">
-        @Html.LabelFor(m => m.PickupRate, new { @class = "col-md-2 control-label" })
-        <div class="col-md-8">
-            @Html.TextBoxFor(m => m.PickupRate, new { @class = "col-md-2 form-control" })
-        </div>
-    </div>
-
     <div class="form-group" id="zip-assignment-block" style="display: none">
         @Html.Label("Zip Assignment", new { @class = "col-md-2 control-label" })
         <div class="col-md-8">

@@ -109,10 +109,6 @@ namespace TrashCollector.Models
         public string PickupDay { get; set; }
 
         [Required]
-        [Display(Name = "Pickup Rate")]
-        public string PickupRate { get; set; }
-
-        [Required]
         [Display(Name = "Role")]
         public string UserRole { get; set; }
 
