@@ -18,7 +18,15 @@ namespace TrashCollector.Controllers
             string id = User.Identity.GetUserId();
             int? zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipAssigment).FirstOrDefault();
             List<Pickup> pickups = db.Pickups.Include("User").Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
-            return View("Index", pickups);
+            List<Pickup> unsuspendedPickups = new List<Pickup>();
+            foreach (Pickup pickup in pickups)
+            {
+                if (!IsPickupSuspended(pickup))
+                {
+                    unsuspendedPickups.Add(pickup);
+                }
+            }
+            return View("Index", unsuspendedPickups);
         }
 
         public ActionResult CompletePickup(int Id)
@@ -35,7 +43,15 @@ namespace TrashCollector.Controllers
             string id = User.Identity.GetUserId();
             int? zip = db.Users.Where(u => u.Id == id).Select(u => u.ZipAssigment).FirstOrDefault();
             List<Pickup> pickups = db.Pickups.Include("User").Where(p => p.User.ZipCode == zip).Where(p => p.Status == "Incomplete").ToList();
-            return View(pickups);
+            List<Pickup> unsuspendedPickups = new List<Pickup>();
+            foreach (Pickup pickup in pickups)
+            {
+                if (!IsPickupSuspended(pickup))
+                {
+                    unsuspendedPickups.Add(pickup);
+                }
+            }
+            return View(unsuspendedPickups);
         }
 
         public ActionResult CustomerProfile(string Id)
@@ -43,6 +59,21 @@ namespace TrashCollector.Controllers
             ApplicationUser customer = db.Users.Where(c => c.Id == Id).FirstOrDefault();
             ViewBag.APIString = Keychain.APIString;
             return View(customer);
+        }
+
+        private bool IsPickupSuspended(Pickup pickup)
+        {
+            string userId = pickup.UserId;
+            List<Suspension> suspensions = db.Suspensions.Where(s => s.UserID == userId).ToList();
+
+            foreach (Suspension suspension in suspensions)
+            {
+                if(pickup.Date >= suspension.StartDate && pickup.Date <= suspension.EndDate)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
