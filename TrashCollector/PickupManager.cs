@@ -35,19 +35,26 @@ namespace TrashCollector
         public static void UpdatePickups()
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var users = db.Users.ToList();
+            var users = db.Users.Where(u => u.UserRole == "Customer").ToList();
             var pickups = db.Pickups.ToList();
-            
+            DateTime weekStart = GetWeekStart(DateTime.Today);
+            DateTime weekEnd = GetWeekEnd(DateTime.Today);
+
             foreach (ApplicationUser user in users)
             {
                 DateTime pickupDay = DateTime.Today;
-                while (pickupDay.DayOfWeek.ToString() != user.PickupDay && (pickupDay.DayOfWeek.ToString() != "Saturday" && pickupDay.DayOfWeek.ToString() != "Sunday"))
+                while(pickupDay < weekEnd && pickupDay.DayOfWeek.ToString() != user.PickupDay)
                 {
-                    pickupDay = pickupDay.AddDays(1);
+                    pickupDay.AddDays(1);
                 }
+                //while (pickupDay.DayOfWeek.ToString() != user.PickupDay && (pickupDay.DayOfWeek.ToString() != "Saturday" && pickupDay.DayOfWeek.ToString() != "Sunday"))
+                //{
+                //    pickupDay = pickupDay.AddDays(1);
+                //}
+
                 if (pickupDay.DayOfWeek.ToString() == user.PickupDay && pickups.Where(p => p.UserId == user.Id).Where(p => p.Date == pickupDay.Date).Count() == 0)
                 {
-                    Pickup pickup = new Pickup() { UserId = user.Id, User = user, Date = pickupDay.Date, Cost = 1, Status = "Incomplete" };
+                    Pickup pickup = new Pickup() { UserId = user.Id, User = user, Date = pickupDay.Date, Cost = 10, Status = "Incomplete" };
                     db.Pickups.Add(pickup);
                 }
             }
