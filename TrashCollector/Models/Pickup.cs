@@ -14,7 +14,6 @@ namespace TrashCollector.Models
         [ForeignKey("User")]
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
-        public string EmployeeId { get; set; }
         public DateTime Date { get; set; }
         public string Status { get; set; }
         public double Cost { get; set; }
