@@ -29,6 +29,8 @@ namespace TrashCollector
             {
                 dateObject = dateObject.AddDays(1);
             }
+            dateObject = dateObject.AddHours(23);
+            dateObject = dateObject.AddMinutes(59);
             return dateObject;
         }
 
